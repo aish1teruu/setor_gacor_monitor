@@ -5,6 +5,7 @@ import logoWhite from '../Asset/setor putih.png';
 import groupImage from '../Asset/Ellipse 1.png';
 import teamImage from '../Asset/ChatGPT_Image_13_Nov_2025__18.09.25-removebg-preview 1 (1).png';
 import topLeftEllipse from '../Asset/Group 41.png';
+import group73Image from '../Asset/Group 73.png';
 import icon1 from '../Asset/amico.png';
 import icon2 from '../Asset/bro.png';
 import icon3 from '../Asset/documento_foi_aprovado_conceito_ilustração_design_plano_vetor_eps10__elemento_gráfico_moderno_para_página_de_destino__ui_de_estado_vazio__infográfico__ícone-removebg-preview 1.png';
@@ -117,11 +118,15 @@ export default function Home() {
                   src={backgroundImage}
                   alt="Person with bandaged arm"
                   className="rounded-lg shadow-xl mx-auto relative bg-opacity-0"
-                  style={{ width: '444px', height: '637px', zIndex: 10 }}
+                  style={{ width: '420px', height: '600px', zIndex: 10, top: '20px' }}
                 />
                 <div className="absolute top-48 right-20 bg-black bg-opacity-40 p-4 rounded-lg z-20 text-center">
-                  <div className="text-s text-white">Powered by</div>
-                  <div className="text-xl font-bold text-white">Gemini</div>
+                  <div className="text-s text-white mb-2">Powered by</div>
+                  <img
+                    src={group73Image}
+                    alt="Powered by"
+                    className="w-auto h-8 mx-auto"
+                  />
                 </div>
                 {/* Moving the "Jaminan laporan tersampaikan kepada pemerintah" text below the left side of the image and with black background */}
                 <div className="absolute -bottom-10 left-4 bg-black bg-opacity-40 p-4 rounded-lg max-w-xs z-20">
@@ -169,7 +174,23 @@ export default function Home() {
 
       {/* Quote Section */}
       <section id="contact" className="py-16 px-6 bg-gradient-to-br from-green-800 to-green-900">
-        <div className="container mx-auto">
+        <div className="container mx-auto relative">
+          {/* Logo di kiri atas */}
+          <div className="absolute top-20 -left-4 w-45 h-45 z-0 opacity-20 skew-x-12 blur">
+            <img
+              src={logoWhite}
+              alt="SETOR Logo"
+              className="w-full h-full object-contain"
+            />
+          </div>
+          {/* Logo di kanan bawah */}
+          <div className="absolute bottom-4 left-96 w-50 h-50 z-0 opacity-20 -skew-x-12 blur">
+            <img
+              src={logoWhite}
+              alt="SETOR Logo"
+              className="w-full h-full object-contain"
+            />
+          </div>
           <div className="text-center">
             <div className="mb-8">
               <div className="text-3xl md:text-4xl font-serif italic bg-gradient-to-r from-pink-400 to-white bg-clip-text text-transparent">
@@ -182,14 +203,6 @@ export default function Home() {
 
             <div className="flex flex-col md:flex-row items-center gap-8 mt-12">
               <div className="md:w-1/2 relative">
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-30 z-0">
-                  <img
-                    src={groupImage}
-                    alt="Ellipse Background"
-                    className="object-contain"
-                    style={{ width: '468px', height: '594px' }}
-                  />
-                </div>
                 <img
                   src={teamImage}
                   alt="Team members"
