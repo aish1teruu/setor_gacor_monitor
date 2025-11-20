@@ -170,9 +170,14 @@ export default function Home() {
       <section id="contact" className="py-16 px-6 bg-gradient-to-br from-green-800 to-green-900">
         <div className="container mx-auto">
           <div className="text-center">
-            <blockquote className="text-3xl md:text-4xl font-serif italic text-pink-400 mb-8" style={{fontFamily: "'La Belle Aurore', cursive"}}>
-              "Karena Setiap Laporan anda Bermanfaat Bagi Sesama"
-            </blockquote>
+            <div className="mb-8">
+              <div className="text-3xl md:text-4xl font-serif italic bg-gradient-to-r from-pink-400 to-white bg-clip-text text-transparent">
+                "Karena Setiap Laporan
+              </div>
+              <div className="text-3xl md:text-4xl font-serif italic bg-gradient-to-r from-pink-400 to-white bg-clip-text text-transparent">
+                anda Bermanfaat Bagi Sesama"
+              </div>
+            </div>
 
             <div className="flex flex-col md:flex-row items-center gap-8 mt-12">
               <div className="md:w-1/2 relative">
