@@ -45,9 +45,11 @@ const Layout = ({ children }) => {
                 key={item.path}
                 to={item.path}
                 className={`px-3 py-2 rounded-md transition-colors ${
-                  location.pathname === item.path
-                    ? 'bg-white text-green-800 font-semibold'
-                    : 'hover:bg-green-800'
+                  item.path === '/report-form'
+                    ? 'bg-white text-pink-500 font-semibold'
+                    : location.pathname === item.path
+                      ? 'bg-white text-green-800 font-semibold'
+                      : 'hover:bg-green-800'
                 }`}
               >
                 {item.label}
@@ -75,9 +77,11 @@ const Layout = ({ children }) => {
                   key={item.path}
                   to={item.path}
                   className={`block px-4 py-2 rounded-md ${
-                    location.pathname === item.path
-                      ? 'bg-white text-[#255F3B] font-semibold'
-                      : 'hover:bg-amber-200'
+                    item.path === '/report-form'
+                      ? 'bg-white text-pink-500 font-semibold'
+                      : location.pathname === item.path
+                        ? 'bg-white text-[#255F3B] font-semibold'
+                        : 'hover:bg-amber-200'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >

@@ -38,7 +38,7 @@ const AboutUs = () => {
             The Purpose Behind Our Platform
           </h2>
 
-          <div className="bg-neutral-900 rounded-xl p-6 md:p-10 shadow-xl">
+          <div className="bg-neutral-900 rounded-xl p-6 md:p-10 shadow-xl bg-opacity-40">
             <div className="grid md:grid-cols-2 gap-8 items-center">
 
               {/* Text */}
@@ -51,17 +51,22 @@ const AboutUs = () => {
                 </p>
               </div>
 
-              {/* Image */}
-              <div className="relative">
+              {/* Card Layout Baru (Menggantikan Card Lama) */}
+              <div className="relative h-96 bg-green-800 rounded-xl shadow-xl overflow-hidden flex items-center justify-center">
+                {/* Gambar dari Asset */}
                 <img
                   src={aboutUsImage}
-                  alt="Medical Care"
-                  className="rounded-lg shadow-xl"
+                  alt="Platform visualization"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 right-4 bg-black bg-opacity-70 text-pink-300 px-4 py-2 rounded-lg font-bold text-xl">
+
+                {/* Angka 100+ Kanan Atas */}
+                <div className="absolute top-6 right-6 bg-black bg-opacity-70 p-3 rounded-lg text-white font-bold text-2xl z-10">
                   100+
                 </div>
-                <div className="absolute bottom-4 left-64 bg-black bg-opacity-70 text-pink-300 px-4 py-2 rounded-lg font-bold text-xl">
+
+                {/* Angka 100+ Kiri Bawah */}
+                <div className="absolute bottom-6 left-6 bg-black bg-opacity-70 p-3 rounded-lg text-white font-bold text-2xl z-10">
                   100+
                 </div>
               </div>
@@ -74,7 +79,7 @@ const AboutUs = () => {
       {/* Team */}
       <section className="py-16 px-6 bg-green-900">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-pink-300 text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-pink-400 text-center mb-12">
             Meet Our Teams
           </h2>
 
@@ -82,20 +87,15 @@ const AboutUs = () => {
             {teamMembers.map((member) => (
               <div
                 key={member.id}
-                className="bg-green-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-neutral-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
               >
-                <div className="relative">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
-                    <h3 className="text-xl font-bold text-pink-300">{member.name}</h3>
+                <div className="relative h-80 bg-gray-700 overflow-hidden"> {/* Placeholder untuk gambar */}
+                  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                    <h3 className="text-xl font-bold text-pink-400">{member.name}</h3>
                   </div>
                 </div>
                 <div className="p-4">
-                  <p className="text-white text-sm">{member.role}</p>
+                  <p className="text-gray-200 text-base">{member.role}</p>
                 </div>
               </div>
             ))}
