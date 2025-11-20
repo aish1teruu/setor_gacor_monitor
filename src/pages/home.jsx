@@ -102,7 +102,7 @@ export default function Home() {
                   src={ellipseBackground}
                   alt="Background ellipse"
                   className="rounded-lg shadow-xl mx-auto absolute"
-                  style={{ width: '444px', height: '637px', zIndex: 0, right: '70px' }}
+                  style={{ width: '500px', height: '700px', zIndex: 0, right: '70px' }}
                 />
                 {/* Adding the logo behind the main image */}
                 <div className="absolute -top-0 -left-0 w-50 h-50 z-0 -skew-x-12">
