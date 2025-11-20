@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import aboutUsImage from '../Asset/Rectangle 147 (1).png';
 
 const AboutUs = () => {
   const teamMembers = [
@@ -33,7 +34,7 @@ const AboutUs = () => {
       {/* Purpose Section */}
       <section className="py-16 px-6 bg-green-900">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-pink-300 text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12 font-serif italic" style={{ fontFamily: "'La Belle Aurore', cursive" }}>
             The Purpose Behind Our Platform
           </h2>
 
@@ -43,24 +44,17 @@ const AboutUs = () => {
               {/* Text */}
               <div className="space-y-6">
                 <p className="leading-relaxed">
-                  Banyak penanganan medis di Indonesia yang masih belum sesuai standar, namun
-                  tidak pernah dilaporkan karena tidak ada kanal pelaporan yang mudah dan cepat.
+                  Banyak penanganan medis di Indonesia yang masih belum sesuai standar, namun tidak pernah dilaporkan karena tidak ada kanal pelaporan yang mudah, cepat, dan dapat ditindaklanjuti. Data nasional menunjukkan ribuan insiden keselamatan pasien tercatat setiap tahun, sementara banyak fasilitas kesehatan belum aktif melapor; sehingga jumlah kasus sebenarnya jauh lebih besar.
                 </p>
                 <p className="leading-relaxed">
-                  Platform ini hadir untuk menjembatani kesenjangan tersebut dengan pelaporan
-                  sederhana, AI WoundChecker, serta pengiriman otomatis ke pihak berwenang.
+                  Platform ini hadir untuk menjembatani kesenjangan tersebut. Dengan formulir pelaporan yang sederhana, dukungan AI WoundChecker untuk mengecek kesesuaian tindakan, serta fitur pengiriman otomatis ke pihak berwenang, laporan masyarakat dapat berubah menjadi data yang benar-benar ditindak, bukan sekadar keluhan yang hilang begitu saja.
                 </p>
-                <div className="pt-4">
-                  <Link to="/report-form" className="bg-pink-300 text-green-900 px-4 py-2 rounded-full font-semibold hover:bg-pink-400 transition-colors inline-block">
-                    Mulai Pelaporan
-                  </Link>
-                </div>
               </div>
 
               {/* Image */}
               <div className="relative">
                 <img
-                  src="https://placehold.co/600x400/ffffff/000000?text=Medical+Care"
+                  src={aboutUsImage}
                   alt="Medical Care"
                   className="rounded-lg shadow-xl"
                 />
