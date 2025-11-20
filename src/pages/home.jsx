@@ -191,7 +191,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="md:w-1/2">
+              <div className="md:w-1/2 ml-24">
                 <h3 className="text-5xl font-bold text-left mb-6">Contact Us</h3>
                 <div className="space-y-4 pl-1">
                   <div className="flex items-center gap-3">
