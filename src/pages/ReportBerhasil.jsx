@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import groupImage from '../Asset/backgroundBerhasil.png';
 
 const ReportBerhasil = () => {
   const [isExporting, setIsExporting] = useState(false);
-  const [exportSuccess, setExportSuccess] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const formData = location.state;
 
   // Navigate to FormDownload page for export functionality
   const handleExport = () => {
@@ -12,17 +14,24 @@ const ReportBerhasil = () => {
     setTimeout(() => {
       setIsExporting(false);
       // Navigate to the form download page instead of simulating export
-      navigate('/form-download');
+      navigate('/form-download', { state: formData});
     }, 1000);
   };
 
   return (
-    <div className="min-h-screen bg-green-900 text-white font-sans">
+    <div className="relative min-h-screen bg-[#1A472B] text-white font-sans">
+      
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img src={groupImage}
+        alt=""
+        className="w-full h-full object-cover opacity-90"/>
+      </div>
+
       {/* Main Content */}
-      <main className="py-12 px-6">
+      <main className="py-12 px-6 relative z-20">
         <div className="container mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-pink-300 text-center mb-8">
-            Terima Kasih telah menggunakan SETOR
+          <h1 className="text-3xl md:text-4xl text-white font-bold text-center mb-8">
+            <span className="text-pink-300">Terima Kasih</span> telah menggunakan <span className="text-pink-300">SETOR</span>
           </h1>
           
           <div className="max-w-md mx-auto bg-green-50 rounded-xl p-8 shadow-lg">

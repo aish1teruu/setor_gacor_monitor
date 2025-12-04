@@ -1,107 +1,120 @@
-import React, { useState, useEffect } from 'react';
-import setorLogo from '../Asset/setor putih.png';
+import React, { useState, useEffect, useRef } from 'react';
+import setorLogo from '../Asset/setor pink.png';
+import pelanggaranLayanan from '../Asset/pelanggaran pelayanan.png'
+import html2canvas from "html2canvas";
+import { useLocation } from "react-router-dom";
+import ReportForm from './ReportForm';
+import ellipse1Image from '../Asset/Ellipse 1.png';
+import elemenBackground from '../Asset/elemenBackground.png';
+
 
 const FormDownload = () => {
-  const [reportData, setReportData] = useState({
-    name: "Zilfany Nur A'athifah",
-    facility: "Puskesmas Bontomarannu",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et dictum nunc. Donec fermentum libero eu metus vulputate hendrerit. In hac habitasse platea dictumst. Nullam commodo iaculis dui, ultricies malesuada neque ultrices nec. Sed bibendum purus nunc, ut bibendum felis pretium semper. Nullam eleifend nibh ut pellentesque ornare. Vestibulum pretium mi eget purus ullamcorper dapibus.",
-    evidenceImage: "https://placehold.co/300x200/cccccc/333333?text=bukti+pendukung+(wajib)",
-    woundImage: "https://placehold.co/300x200/cccccc/333333?text=foto+luka+(opsional)"
-  });
+  const exportRef = useRef(null);
 
-  // Simulate loading or animation effect
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // This could be replaced with actual data fetching in a real app
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+  const handleDownload = async () => {
+    const element = exportRef.current;
+
+    const canvas = await html2canvas(element, {
+      scale: 2, // gambar lebih tajam
+    });
+
+    const dataURL = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = dataURL;
+    link.download = "laporan-setor.png";
+    link.click();
+  };
+
+  const location = useLocation();
+  const formData = location.state;
+
+  const [reportData, setReportData] = useState({
+    name: formData?.nama ||"Cantumkan nama",
+    facility: formData?.lokasi ||"Tidak ada lokasi",
+    description:
+      formData?.deskripsi ||"Tidak ada deskripsi",
+    evidenceImage: formData?.buktiPendukung
+    ? URL.createObjectURL(formData.buktiPendukung)
+    : "https://placehold.co/300x200/cccccc/333333?text=bukti+pendukung+(wajib)",
+    woundImage: formData?.gambarLuka
+    ? URL.createObjectURL (formData.gambarLuka)
+    : "https://placehold.co/300x200/cccccc/333333?text=foto+luka+(opsional)",
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-900 to-green-800 text-white font-sans relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-          <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
-            <path d="M 0 0 L 100 0 L 100 100 L 0 100 Z" fill="none" stroke="white" strokeWidth="1"/>
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-
-      {/* Header */}
-      <header className="py-6 px-4 text-center">
+      
+      <div ref={exportRef} className="relative z-0 max-w-md mx-auto min-h-screen bg-[#1A472B] rounded-2xl mt-10">
+      <img
+        src={elemenBackground}
+        alt="background element"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-30 -z-10 pointer-events-none"
+      />
+      {/* HEADER */}
+      <header className="py-6 px-4 text-center z-10">
         <div className="flex justify-center mb-4 items-center">
-          <img src={setorLogo} alt="SETOR Logo" className="w-12 h-12" />
+          <img src={setorLogo} alt="SETOR Logo" className="w-8 h-8" />
           <h1 className="text-2xl font-bold text-pink-300 ml-2">SETOR</h1>
         </div>
-        
+
         <div className="mt-6">
-          <p className="text-pink-300 text-2xl italic font-light">laporan</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-2">
-            PELANGGARAN PELAYANAN KESEHATAN!
-          </h2>
+        <img src={pelanggaranLayanan} alt="header form" className="w-82 h-82" />
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* MAIN CONTENT */}
       <main className="container mx-auto px-4 py-8">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-green-900 rounded-3xl p-6 md:p-8 shadow-xl border-2 border-green-700">
-            {/* Report Header */}
+        <div ref={exportRef} className="max-w-3xl mx-auto">
+          <div className="relative z-[5] bg-neutral-900 bg-opacity-60 rounded-3xl p-6 md:p-8 shadow-xl z-10">
+
+            {/* NAME */}
             <div className="mb-6">
               <p className="text-pink-300 text-sm">Halo! nama saya</p>
               <h3 className="text-2xl font-bold text-white border-b-2 border-white pb-2 mt-1">
                 {reportData.name}
               </h3>
             </div>
-            
+
+            {/* FACILITY */}
             <div className="mb-6">
-              <p className="text-pink-300 text-sm">saya mendapatkan pelayanan kesehatan yang buruk di</p>
+              <p className="text-pink-300 text-sm">
+                Saya mendapatkan pelayanan kesehatan yang buruk di
+              </p>
               <h4 className="text-xl font-bold text-white border-b-2 border-white pb-2 mt-1">
                 {reportData.facility}
               </h4>
             </div>
 
-            {/* Evidence Images */}
+            {/* IMAGES */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="bg-gray-800 rounded-lg overflow-hidden">
-                <img 
-                  src={reportData.evidenceImage} 
-                  alt="Bukti Pendukung" 
+              <div className="bg-pink-300 rounded-lg overflow-hidden">
+                <img
+                  src={reportData.evidenceImage}
+                  alt="Bukti Pendukung"
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-3">
-                  <p className="text-white text-sm font-medium">bukti pendukung (wajib)</p>
+                  <p className="text-white text-sm font-medium">
+                    Bukti Pendukung
+                  </p>
                 </div>
               </div>
-              
-              <div className="bg-gray-800 rounded-lg overflow-hidden">
-                <img 
-                  src={reportData.woundImage} 
-                  alt="Foto Luka" 
+
+              <div className="bg-pink-300 rounded-lg overflow-hidden">
+                <img
+                  src={reportData.woundImage}
+                  alt="Foto Luka"
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-3">
-                  <p className="text-white text-sm font-medium">foto luka (opsional)</p>
+                  <p className="text-white text-sm font-medium">
+                    Foto Luka
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Gemini Checked */}
-            <div className="flex items-center justify-center mb-6">
-              <div className="flex items-center space-x-2">
-                <span className="text-white font-semibold">Gemini checked</span>
-                <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            {/* Description */}
+            {/* DESCRIPTION */}
             <div>
               <h5 className="text-pink-300 text-sm mb-2">Deskripsi</h5>
               <p className="text-white leading-relaxed">
@@ -112,12 +125,24 @@ const FormDownload = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="py-6 px-4 text-center">
-        <p className="text-pink-300 text-sm">
-          reported via <span className="underline">www.sehatmonitor.xyz</span>
-        </p>
-      </footer>
+      <footer className="py-6 px-4 text-center z-10">
+              <p className="text-pink-300 text-sm">
+                reported via <span className="underline">www.sehatmonitor.xyz</span>
+              </p>
+            </footer>
+
+      <img src='setorLogo' alt='Background Logo' className="absolute top-1/2 left-1/2 w-64 -translate-x-1/2 -translate-y-1/2 opacity-20 blur-3xl pointer-events-none"/>
+    </div>
+
+    {/* DOWNLOAD BUTTON */}
+            <div className="text-center mt-8 mb-8">
+              <button
+                onClick={handleDownload}
+                className="bg-pink-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-500 transition"
+              >
+                Download Image
+              </button>
+            </div>
     </div>
   );
 };

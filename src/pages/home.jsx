@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import backgroundImage from '../Asset/ChatGPT Image Nov 13, 2025, 06_03_54 PM 2.png';
 import ellipseBackground from '../Asset/Ellipse 1.png';
+import logoPink from '../Asset/setor pink.png';
 import logoWhite from '../Asset/setor putih.png';
 import groupImage from '../Asset/Ellipse 1.png';
 import teamImage from '../Asset/ChatGPT_Image_13_Nov_2025__18.09.25-removebg-preview 1 (1).png';
@@ -82,7 +83,7 @@ export default function Home() {
         <div className="container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 space-y-6 relative z-20">
-              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight ml-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-pink-200 leading-tight ml-6">
                 Awasi dan Tingkatkan Kualitas Penanganan Kesehatan di Indonesia
               </h1>
               <p className="text-lg text-gray-200 ml-6">
@@ -269,10 +270,8 @@ export default function Home() {
                 />
               </div>
 
-             
-
               <div className="md:w-1/2 ml-16">
-                <h3 className="text-5xl font-bold text-left mb-8">Contact Us</h3>
+                <h3 className="text-5xl font-bold text-pink-200 text-left mb-8">Contact Us</h3>
                 <div className="space-y-4 pl-1">
                   <div className="flex items-center gap-3">
                     <img src={phoneIcon} className="w-8 h-8 text-pink-400" alt="Phone Icon" />
@@ -294,7 +293,6 @@ export default function Home() {
           </div>
           
         </div>
-             
       </section>
 
     </div>

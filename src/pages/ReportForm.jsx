@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import groupImage from '../Asset/Group 77 (1).png';
+import groupImage from '../Asset/backgroundReport.png';
 import ellipseImage from '../Asset/Ellipse 1.png';
 
 const ReportForm = () => {
@@ -28,7 +28,7 @@ const ReportForm = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       // Redirect to success page after successful submission
-      navigate('/report-berhasil');
+      navigate('/report-berhasil', { state: formData});
     }, 2000);
   };
 
@@ -45,13 +45,13 @@ const ReportForm = () => {
   return (
     <div className="min-h-screen bg-custom-green text-white font-sans relative">
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img src={groupImage} alt="Group" className="w-[1400px] h-[500px] object-cover opacity-100" style={{transform: 'translateY(180px)'}}/>
+        <img src={groupImage} alt="Group" className="w-full h-full object-cover opacity-100"/>
       </div>
       {/* Main Content */}
       <main className="py-12 px-6">
         <div className="container mx-auto relative z-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-pink-300 text-center mb-8">
-            Laporkan Keluhan Anda!
+          <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-8">
+            <span className="text-pink-300">Laporkan</span> Keluhan Anda!
           </h1>
 
           <div className="max-w-4xl mx-auto bg-green-50 rounded-xl p-8 shadow-lg">
@@ -66,7 +66,7 @@ const ReportForm = () => {
                       name="nama"
                       value={formData.nama}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white"
+                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white text-black"
                       placeholder="Zinedine Azka Fahreza"
                     />
                   </div>
@@ -78,7 +78,7 @@ const ReportForm = () => {
                       name="nomorHp"
                       value={formData.nomorHp}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white"
+                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white text-black"
                       placeholder="081352789066"
                     />
                   </div>
@@ -90,7 +90,7 @@ const ReportForm = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white"
+                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white text-black"
                       placeholder="azkabo@gmail.com"
                     />
                   </div>
@@ -102,7 +102,7 @@ const ReportForm = () => {
                       name="lokasi"
                       value={formData.lokasi}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white"
+                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white text-black"
                       placeholder="Sulawesi Selatan, Makassar, RS..."
                     />
                   </div>
@@ -116,7 +116,7 @@ const ReportForm = () => {
                           name="tanggal"
                           value={formData.tanggal}
                           onChange={handleChange}
-                          className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white"
+                          className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white text-black"
                           placeholder="MM/DD/YY"
                         />
                         <div className="absolute right-3 top-2.5 text-green-700">
@@ -198,7 +198,7 @@ const ReportForm = () => {
                       value={formData.deskripsi}
                       onChange={handleChange}
                       rows={6}
-                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white"
+                      className="w-full px-4 py-2 border-2 border-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 bg-white text-black"
                       placeholder="kelinci saya overdosis wortel"
                     ></textarea>
                   </div>
@@ -209,10 +209,10 @@ const ReportForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`px-8 py-3 rounded-full font-semibold text-lg ${
+                  className={`px-8 py-3 rounded-full font-bold text-lg ${
                     isSubmitting 
                       ? 'bg-gray-400 cursor-not-allowed' 
-                      : 'bg-pink-300 text-green-900 hover:bg-pink-400'
+                      : 'bg-pink-300 text-white hover:bg-pink-400'
                   } transition-colors`}
                 >
                   {isSubmitting ? 'Mengirim...' : 'Kirim'}

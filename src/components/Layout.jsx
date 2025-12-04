@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import setorLogo from '../Asset/setor putih.png';
+import setorLogo from '../Asset/setor pink.png';
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
             ) : (
               <img src={setorLogo} alt="SETOR Logo" className="w-8 h-8" />
             )}
-            <h1 className="text-xl font-bold">SETOR</h1>
+            <h1 className="text-pink-300 text-xl font-bold">SETOR</h1>
           </div>
 
           {/* Desktop Navigation */}
@@ -44,9 +44,9 @@ const Layout = ({ children }) => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 py-2 rounded-md transition-colors ${
+                className={`px-3 py-2 rounded-3xl transition-colors ${
                   item.path === '/report-form'
-                    ? 'bg-white text-pink-500 font-semibold'
+                    ? 'bg-pink-500 text-white-500 font-semibold'
                     : location.pathname === item.path
                       ? 'bg-white text-green-800 font-semibold'
                       : 'hover:bg-green-600'
@@ -94,7 +94,9 @@ const Layout = ({ children }) => {
       </header>
 
       {/* Main Content */}
-      <main>{children}</main>
+      <main className="relative z-10">
+  {children}
+</main>
 
       {/* FOOTER */}
       <footer className="bg-[#255F3B] py-6 px-4 shadow-[0_-80px_80px_32px_rgba(0,0,0,0.15)]">

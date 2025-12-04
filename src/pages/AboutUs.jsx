@@ -2,19 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import aboutUsImage from '../Asset/Rectangle 147 (1).png';
 import ellipse1Image from '../Asset/Ellipse 1.png';
-import dzakwanImage from '../Asset/WhatsApp Image 2025-11-23 at 20.46.49_54b79fd7.jpg';
+import dzakwanImage from '../Asset/fotodzakwan.jpg';
 import aisyImage from '../Asset/FotoAisy.jpg';
 import fannyImage from '../Asset/FotoFanny.jpg';
-import nadhifImage from '../Asset/FotoNadhif.jpg';
-import nadiahImage from '../Asset/marsha jkt48.jpg';
+import nadhifImage from '../Asset/nadip.jpg';
+import nadiahImage from '../Asset/fotonadiah.jpg';
 
 const AboutUs = () => {
   const teamMembers = [
-    { id: 1, name: 'Nadhif', role: 'Lead, Fullstack', image: nadhifImage },
-    { id: 2, name: 'Fany', role: 'UI/UX Design', image: fannyImage },
-    { id: 3, name: 'Nadiah', role: 'Sekret mentorz', image: nadiahImage },
-    { id: 4, name: 'Dzakwan', role: 'Doraemon', image: dzakwanImage },
-    { id: 5, name: 'Aisy', role: 'Tenxi', image: aisyImage }
+    { id: 1, name: 'Nadhif', role: 'Lead, Backend Developer', image: nadhifImage },
+    { id: 2, name: 'Fany', role: 'UI/UX Design, Frontend Developer', image: fannyImage },
+    { id: 3, name: 'Nadiah', role: 'Technical Writer', image: nadiahImage },
+    { id: 4, name: 'Dzakwan', role: 'Database Administrator', image: dzakwanImage },
+    { id: 5, name: 'Aisy', role: 'Frontend', image: aisyImage }
   ];
 
   return (
@@ -23,10 +23,10 @@ const AboutUs = () => {
 
       {/* Hero Section */}
       <section className="relative py-16 px-6 mt-32 mb-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-green-700 to-green-900 opacity-80"/>
+        <div className="absolute inset-0 bg-gradient-to-b from-green-700 to-green-900 opacity-70"/>
         <div className="absolute inset-0 opacity-30 flex items-center justify-center">
           <img
-            src={require('../Asset/Rectangle 145.png')}
+            src={require('../Asset/fotbar.jpg')}
             alt="Medical Team"
             className="object-contain"
           />
@@ -80,46 +80,46 @@ const AboutUs = () => {
         </div>
 
         <div className="container mx-auto relative z-10">
-          <h2 className="text-3xl md:text-5xl text-center mb-10 font-serif" style={{ fontFamily: "'La Belle Aurore', cursive", color: '#FFD0EE' }}>
-            The Purpose Behind Our Platform
-          </h2>
+        <h2 className="text-3xl md:text-5xl text-center mb-10 font-serif"
+            style={{ fontFamily: "'La Belle Aurore', cursive", color: '#FFD0EE' }}>
+          The Purpose Behind Our Platform
+        </h2>
 
-          <div className="bg-neutral-900 rounded-xl p-4 md:p-6 shadow-xl bg-opacity-40 w-[1100px] mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="bg-neutral-900 rounded-xl p-6 md:p-10 shadow-xl bg-opacity-70 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-1 items-center">
 
-              {/* Text */}
-              <div className="space-y-6">
-                <p className="leading-relaxed ml-10 -mr-28 font-poppins">
-                  Banyak penanganan medis di Indonesia yang masih belum sesuai standar, namun tidak pernah dilaporkan karena tidak ada kanal pelaporan yang mudah, cepat, dan dapat ditindaklanjuti. Data nasional menunjukkan ribuan insiden keselamatan pasien tercatat setiap tahun, sementara banyak fasilitas kesehatan belum aktif melapor; sehingga jumlah kasus sebenarnya jauh lebih besar.
-                </p>
-                <p className="leading-relaxed ml-10 -mr-20 font-poppins">
-                  Platform ini hadir untuk menjembatani kesenjangan tersebut. Dengan formulir pelaporan yang sederhana, dukungan AI WoundChecker untuk mengecek kesesuaian tindakan, serta fitur pengiriman otomatis ke pihak berwenang, laporan masyarakat dapat berubah menjadi data yang benar-benar ditindak, bukan sekadar keluhan yang hilang begitu saja.
-                </p>
-              </div>
+            {/* Text */}
+            <div className="space-y-4 text-white font-poppins">
+              <p className="leading-relaxed">
+                Banyak penanganan medis di Indonesia yang masih belum sesuai standar, namun tidak pernah dilaporkan karena tidak ada kanal pelaporan yang mudah, cepat, dan dapat ditindaklanjuti. Data nasional menunjukkan ribuan insiden keselamatan pasien tercatat setiap tahun, sementara banyak fasilitas kesehatan belum aktif melapor; sehingga jumlah kasus sebenarnya jauh lebih besar.
+              </p>
+              <p className="leading-relaxed">
+                Platform ini hadir untuk menjembatani kesenjangan tersebut. Dengan formulir pelaporan yang sederhana, dukungan AI WoundChecker untuk mengecek kesesuaian tindakan, serta fitur pengiriman otomatis ke pihak berwenang, laporan masyarakat dapat berubah menjadi data yang benar-benar ditindak, bukan sekadar keluhan yang hilang begitu saja.
+              </p>
+            </div>
 
-              {/* Card Layout Baru (Menggantikan Card Lama) */}
-              <div className="relative h-96 rounded-xl overflow-hidden flex items-center justify-center ml-16">
-                {/* Gambar dari Asset */}
+            {/* Image card */}
+            <div className="relative flex items-center justify-center">
+              <div className="relative w-full max-w-sm">
                 <img
                   src={aboutUsImage}
                   alt="Platform visualization"
-                  className="w-1000 h-1000 "
+                  className="w-full rounded-xl"
                 />
 
-                {/* Angka 100+ Kanan Atas */}
-                <div className="absolute top-16 right-8 bg-black bg-opacity-70 p-3 rounded-lg text-[#FFD0EE] font-bold text-4xl z-10">
+                <div className="absolute top-4 right-8 bg-black bg-opacity-70 p-2 rounded-md text-[#FFD0EE] text-3xl font-bold">
                   100+
                 </div>
-
-                {/* Angka 100+ Kiri Bawah */}
-                <div className="absolute bottom-12 left-6 bg-black bg-opacity-70 p-3 rounded-lg text-[#FFD0EE] font-bold text-4xl z-10">
+                
+                <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 p-2 rounded-md text-[#FFD0EE] text-3xl font-bold">
                   100+
                 </div>
               </div>
-
             </div>
+
           </div>
         </div>
+      </div>
       </section>
 
       {/* Team */}
